@@ -1,19 +1,12 @@
 *** execute make to generate SSL certification files needed *** 
 
-sli@linux-36:~/ssl-san$ ls -l
-total 48
+my dir
+======
 drwxr-xr-x 2 sli sli 4096 Jul 12 10:55 ca
--rwxr-xr-x 1 sli sli 2017 Jul 12 10:57 ca.crt
 drwxr-xr-x 2 sli sli 4096 Jul 12 10:55 client
--rwxr-xr-x 1 sli sli 2074 Jul 12 10:57 client.crt
--rwxr-xr-x 1 sli sli 3272 Jul 12 10:57 client.key
-drwxr-xr-x 3 sli sli 4096 Jul 12 10:53 config
--rw-r--r-- 1 sli sli  217 Jul 14 08:51 korina-ssl.yaml
 -rwxr-xr-x 1 sli sli 1293 Jul 12 10:53 Makefile
 drwxr-xr-x 2 sli sli 4096 Jul 12 10:55 router
--rwxr-xr-x 1 sli sli 5354 Jul 12 10:58 router.pem
--rw-r--r-- 1 sli sli  223 Jul 14 08:51 sherman-ssl.yaml
-sli@linux-36:~/ssl-san$ 
+ 
 
 sli@linux-36:~/ssl-san$ more ca/ca.cnf
 [req]
