@@ -1,0 +1,171 @@
+One sample for gnmic with SSL certification for telemetry with 
+
+$ ls -lrt
+-rwxr-xr-x 1 sli sli 5358 Jul 14 17:06 router.pem
+-rwxr-xr-x 1 sli sli 2074 Jul 14 17:06 client.crt
+-rwxr-xr-x 1 sli sli 3272 Jul 14 17:06 client.key
+-rwxr-xr-x 1 sli sli 2017 Jul 14 17:06 ca.crt
+-rwxr-xr-x 1 sli sli  223 Jul 14 17:15 sample-ssl.yaml
+
+$ more sample-ssl.yaml 
+address: 10.85.175.247:32767
+username: labroot
+password: lab123
+insecure: false
+tls-ca: ./ca.crt           
+tls-key: ./client.key
+tls-cert: ./client.crt
+tls-server-name: router
+
+encoding: json
+subscribe-path:
+        - /system/alarms
+$
+$ gnmic --config sample-ssl.yaml sub
+{
+  "source": "10.85.175.247:32767",
+  "subscription-name": "default-1752538110",
+  "timestamp": 1752538115523887662,
+  "time": "2025-07-14T17:08:35.523887662-07:00",
+  "extensions": [
+    {
+      "Ext": {
+        "RegisteredExt": {
+          "id": 1,
+          "msg": "CgdzaGVybWFuEP//AyILc2Vuc29yXzEwMDAqDy9zeXN0ZW0vYWxhcm1zLzIPL3N5c3RlbS9hbGFybXMvOghyZTAvZWhtZEjD26XbgDNQw9ul24AzYMTbpduAM3ABgAEC"
+        }
+      }
+    }
+  ]
+}
+{
+  "source": "10.85.175.247:32767",
+  "subscription-name": "default-1752538110",
+  "timestamp": 1752538115524260516,
+  "time": "2025-07-14T17:08:35.524260516-07:00",
+  "extensions": [
+    {
+      "Ext": {
+        "RegisteredExt": {
+          "id": 1,
+          "msg": "CgdzaGVybWFuEP//AyILc2Vuc29yXzEwMDAqDy9zeXN0ZW0vYWxhcm1zLzIPL3N5c3RlbS9hbGFybXMvOgpyZTAvYWxhcm1kSMTbpduAM1DE26XbgDNgxNul24AzcAGAAQI="
+        }
+      }
+    }
+  ]
+}
+{
+  "source": "10.85.175.247:32767",
+  "subscription-name": "default-1752538110",
+  "timestamp": 1752538115523865754,
+  "time": "2025-07-14T17:08:35.523865754-07:00",
+  "prefix": "system/alarms/alarm[id=240520069456]",
+  "updates": [
+    {
+      "Path": "state/id",
+      "values": {
+        "state/id": "240520069456"
+      }
+    },
+    {
+      "Path": "state/resource",
+      "values": {
+        "state/resource": "SYSTEM_CHASSIS"
+      }
+    },
+    {
+      "Path": "state/text",
+      "values": {
+        "state/text": "port-0/0/29: Optics does not support configured speed"
+      }
+    },
+    {
+      "Path": "state/time-created",
+      "values": {
+        "state/time-created": 1752359120000000000
+      }
+    },
+    {
+      "Path": "state/severity",
+      "values": {
+        "state/severity": "MINOR"
+      }
+    },
+    {
+      "Path": "state/type-id",
+      "values": {
+        "state/type-id": "CONFIG"
+      }
+    }
+  ],
+  "extensions": [
+    {
+      "Ext": {
+        "RegisteredExt": {
+          "id": 1,
+          "msg": "CgdzaGVybWFuEP//AyILc2Vuc29yXzEwMDAqDy9zeXN0ZW0vYWxhcm1zLzIPL3N5c3RlbS9hbGFybXMvOgpyZTAvYWxhcm1kQICAgAFgxNul24Az"
+        }
+      }
+    }
+  ]
+}
+{
+  "source": "10.85.175.247:32767",
+  "subscription-name": "default-1752538110",
+  "timestamp": 1752538115524007868,
+  "time": "2025-07-14T17:08:35.524007868-07:00",
+  "prefix": "system/alarms/alarm[id=5016387922]",
+  "updates": [
+    {
+      "Path": "state/id",
+      "values": {
+        "state/id": "5016387922"
+      }
+    },
+    {
+      "Path": "state/resource",
+      "values": {
+        "state/resource": "SYSTEM"
+      }
+    },
+    {
+      "Path": "state/text",
+      "values": {
+        "state/text": "chassis No Redundant Power"
+      }
+    },
+    {
+      "Path": "state/time-created",
+      "values": {
+        "state/time-created": 1752358905000000000
+      }
+    },
+    {
+      "Path": "state/severity",
+      "values": {
+        "state/severity": "MAJOR"
+      }
+    },
+    {
+      "Path": "state/type-id",
+      "values": {
+        "state/type-id": "CHASSIS"
+      }
+    }
+  ],
+  "extensions": [
+    {
+      "Ext": {
+        "RegisteredExt": {
+          "id": 1,
+          "msg": "CgdzaGVybWFuEP//AyILc2Vuc29yXzEwMDAqDy9zeXN0ZW0vYWxhcm1zLzIPL3N5c3RlbS9hbGFybXMvOgpyZTAvYWxhcm1kQIGAgAFgxNul24Az"
+        }
+      }
+    }
+  ]
+}
+{
+  "sync-response": true
+}
+^C
+received signal 'interrupt'. terminating...
