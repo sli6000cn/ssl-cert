@@ -9,8 +9,8 @@ $ ls -lrt
 
 $ more sample-ssl.yaml 
 address: 10.85.175.247:32767
-username: labroot
-password: lab123
+username: user1
+password: password1
 insecure: false
 tls-ca: ./ca.crt           
 tls-key: ./client.key
